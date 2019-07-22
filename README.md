@@ -1,4 +1,3 @@
-# ds_workshop
 
 ## Listy zadań:
 
