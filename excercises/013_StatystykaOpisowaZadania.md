@@ -4,7 +4,11 @@
 ### Zadanie 0
 
 - Z niniejszego repozytorium utwórz nowy projekt w RStudio.
+<<<<<<< HEAD
 - W lokalnym repozytorium w folderze `/excercises` utwórz folder ze swoim imieniem, następnie utwórz 
+=======
+- W lokalnym repozytorium w folderze `\excercises` utwórz folder ze swoim imieniem, następnie utwórz 
+>>>>>>> 3a155ee0ebe9a54a02a1312b3267a2b38abad68d
 w nim plik `013_StatystykaOpisowaOdpTwojeImie.R`
 - Zacommituj wprowadzone zmiany i spushuj je do nieniejszego zdalnego repozytorium.
 
