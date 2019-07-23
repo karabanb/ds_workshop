@@ -24,10 +24,14 @@ generowania obserwacji, których rozkład jest normalny.
 
 | liczba obserwacji | odch. stand.  | średnia |
 | ------------------|:-------------:| -------:|
-| 1000              | 0             | 0       |
 | 1000              | 1             | 0       |
+| 1000              | 2             | 0       |
 | 1000              | 3             | 0       |
 
-wektory zapisz do zmiennych: `norm_sd0`, `norm_sd1`, `norm_sd3`
+wektory zapisz do zmiennych: `norm_sd1`, `norm_sd2`, `norm_sd3`
+- Dla każdego z wektorów, oblicz wszytskie poznane przez Ciebie miary zmienności. 
+- Podaj wnioski nasuwające się z interpretacji obliczonych współczynników zmienności.
+- Wykonaj jeden wykres, na którym znajdują się trzy rozkłady dla zmiennych `norm_sd1`, `norm_sd2`, `norm_sd3'.
+- Wykonaj jeden wykres, na którym znajduję się trzy box-ploty dla zmiennych `norm_sd1`, `norm_sd2`, `norm_sd3'.
 
 
