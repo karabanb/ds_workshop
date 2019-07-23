@@ -31,7 +31,7 @@ generowania obserwacji, których rozkład jest normalny.
 wektory zapisz do zmiennych: `norm_sd1`, `norm_sd2`, `norm_sd3`
 - Dla każdego z wektorów, oblicz wszytskie poznane przez Ciebie miary zmienności. 
 - Podaj wnioski nasuwające się z interpretacji obliczonych współczynników zmienności.
-- Wykonaj jeden wykres, na którym znajdują się trzy rozkłady dla zmiennych `norm_sd1`, `norm_sd2`, `norm_sd3'.
-- Wykonaj jeden wykres, na którym znajduję się trzy box-ploty dla zmiennych `norm_sd1`, `norm_sd2`, `norm_sd3'.
+- Wykonaj jeden wykres, na którym znajdują się trzy rozkłady dla zmiennych `norm_sd1`, `norm_sd2`, `norm_sd3`.
+- Wykonaj jeden wykres, na którym znajduję się trzy box-ploty dla zmiennych `norm_sd1`, `norm_sd2`, `norm_sd3`.
 
 
