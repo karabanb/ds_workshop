@@ -378,8 +378,8 @@ summary {
 <p>Do utworzonych przez Was folderów od tego momentu będziecie pushować wasze rozwiązania zadań (chyba, że specyfika zadania będzie wymagać innego rozwiązania).</p>
 </div>
 </div>
-<div id="miary-zmiennosci-rozprpszenia" class="section level2">
-<h2>Miary zmienności (rozprpszenia)</h2>
+<div id="miary-zmiennosci-rozproszenia" class="section level2">
+<h2>Miary zmienności (rozproszenia)</h2>
 <p>Rozwiązania zadań umieść w pliku ‘013_StatystykaOpisowaOdpTwojeImie.R’. Finalną wersję pliku spushuj do zdalnego repozytorium do folderu <code>/excercises/TwojeImie</code></p>
 <div id="zadanie-1" class="section level3">
 <h3>Zadanie 1</h3>
@@ -398,12 +398,12 @@ summary {
 <tbody>
 <tr class="odd">
 <td>1000</td>
-<td align="center">0</td>
+<td align="center">1</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
 <td>1000</td>
-<td align="center">1</td>
+<td align="center">2</td>
 <td align="right">0</td>
 </tr>
 <tr class="odd">
@@ -413,7 +413,53 @@ summary {
 </tr>
 </tbody>
 </table>
-<p>wektory zapisz do zmiennych: <code>norm_sd0</code>, <code>norm_sd1</code>, <code>norm_sd3</code></p>
+<p>wektory zapisz do zmiennych: <code>norm_sd1</code>, <code>norm_sd2</code>, <code>norm_sd3</code>.</p>
+<ul>
+<li>Dla każdego z wektorów, oblicz wszytskie poznane przez Ciebie miary zmienności.</li>
+<li>Podaj wnioski nasuwające się z interpretacji obliczonych współczynników zmienności.</li>
+<li>Wykonaj jeden wykres, na którym znajdują się trzy rozkłady dla zmiennych <code>norm_sd1</code>, <code>norm_sd2</code>, <code>norm_sd3</code>.</li>
+<li>Wykonaj jeden wykres, na którym znajduję się trzy box-ploty dla zmiennych <code>norm_sd1</code>, <code>norm_sd2</code>, <code>norm_sd3</code>.</li>
+</ul>
+</div>
+<div id="zadanie-2" class="section level3">
+<h3>Zadanie 2</h3>
+<ul>
+<li>Zapoznaj się z regułą <a href="http://www.naukowiec.org/wiedza/statystyka/regula-trzech-sigm_709.html">‘Trzech sigm’</a>.</li>
+<li>Zasymuluj dane pomiaru ilozrazu intelgencji w skali Wechslera. Wektory o rozkładzie normalnym powinny mieć następujące parametry:</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>liczba obserwacji</th>
+<th align="center">odch. stand.</th>
+<th align="right">średnia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100</td>
+<td align="center">15</td>
+<td align="right">100</td>
+</tr>
+<tr class="even">
+<td>10000</td>
+<td align="center">15</td>
+<td align="right">100</td>
+</tr>
+<tr class="odd">
+<td>1000000</td>
+<td align="center">15</td>
+<td align="right">100</td>
+</tr>
+</tbody>
+</table>
+<p>wektory zapisz do zmiennych: <code>iq_n100</code>, <code>iq_n10000</code>, <code>iq_n1000000</code></p>
+<ul>
+<li>Sprawdź czy i jak sprawdza się reguła trzech sigm na zasymulowanych danych dla każdego z wektorów.</li>
+<li>Sprawdź jak kształtuje się wartość: 10 percentyla, 1 kwartyla, 3 kwartyla i 90 percentyla dla każdego z wektorów. Porównaj uzyskane wyniki z wartościami z <a href="http://www.iqsociety.org/general/IQchart.pdf">tabeli</a> dla skali Wechslera. Czy można zauważyć jakąś prawidłowość?</li>
+<li>Sprawdź na wektorze <code>iq_n1000000</code> jaki procent obserwacji ma: iq &lt; 80, iq &lt; 100, iq &lt; 115 i iq &gt; 140</li>
+<li>Umieść wykresy gęstości (rozkłady) wszytskich trzech wektorów na jednym wykresie (sugerowane użycie funkcji <code>ggplot2::geom_density()</code>). Co możesz zauważyć?</li>
+</ul>
 </div>
 </div>
 
