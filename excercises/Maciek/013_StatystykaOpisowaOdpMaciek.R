@@ -125,3 +125,14 @@ vegLengths <- rbind(vec1, vec2, vec3)
 p <- ggplot(vegLengths, aes(length, fill = veg)) + geom_density(alpha = 0.5)
 ggplotly(p)
 
+
+### Zadanie 3
+
+head(iris)
+summary(iris)
+
+apply(iris,2,var)
+#petal.length ma najwiekszy rozrzut zmiennej
+
+iris %>% group_by(Species)
+str(iris)
