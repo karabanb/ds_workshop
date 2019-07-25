@@ -84,10 +84,44 @@ iq_n1000000 <- rnorm(1000000, mean = 100, sd = 15)
 max(iq_n100) < mean(iq_n100) + 3 * sd(iq_n100)
 min(iq_n100) > mean(iq_n100) - 3 * sd(iq_n100)
 
-#37 wynikow poza przedzialem 3 sigma
+#37 wynikow (~0,37%) poza przedzialem 3 sigma
 length(which(iq_n10000 < mean(iq_n10000) + 3 * sd(iq_n10000) & iq_n10000 > mean(iq_n10000) - 3 * sd(iq_n10000))) 
 
-#2724 wynikow poza przedzialem 3 sigma
+#2724 wynikow (~0,27%) poza przedzialem 3 sigma
 length(which(iq_n1000000 < mean(iq_n1000000) + 3 * sd(iq_n1000000) & iq_n1000000 > mean(iq_n1000000) - 3 * sd(iq_n1000000))) 
 
+#percyntyle
+#10 percentyl, 1 kwartyl, 3 kwartyl i 90 percentyl
+quantile(iq_n100, c(.10,.25,.75,.90))
+quantile(iq_n10000, c(.10,.25,.75,.90))
+quantile(iq_n1000000, c(.10,.25,.75,.90))
+
+#wartosci wechslera , perc10 - 80 ; perc25 - 90 ; perc75 - 110 ; perc90 - 120
+#wartosci percyntyli wektorow 2 i 3 - pokrywaja sie z IQ Weschlera (dla SD=15) dla vinci society ?
+
+
+#Sprawdź na wektorze `iq_n1000000` jaki procent obserwacji ma: iq < 80, iq < 100, iq < 115 i iq > 140
+length(which(iq_n1000000 < 80)) / 1000000 *100 
+length(which(iq_n1000000 < 100)) / 1000000 *100 
+length(which(iq_n1000000 < 115)) / 1000000 *100 
+length(which(iq_n1000000 > 140)) / 1000000 *100 
+
+#0.09% obserwacji ponizej iq < 80 ; 49.98% obserwacji ponizej iq < 100 ; 84,2% ponizej 115 ; 0,38 % powyzej 140
+
+#Umieść wykresy gęstości (rozkłady) dla 3 wektorow
+
+library(ggplot2)
+install.packages('plotly')
+library(plotly)
+vec1 <- data.frame(length = iq_n100)
+vec2 <- data.frame(length = iq_n10000)
+vec3 <- data.frame(length = iq_n1000000)
+
+vec1$veg <- 'vec1'
+vec2$veg <- 'vec2'
+vec3$veg <- 'vec3'
+                   
+vegLengths <- rbind(vec1, vec2, vec3)
+p <- ggplot(vegLengths, aes(length, fill = veg)) + geom_density(alpha = 0.5)
+ggplotly(p)
 
