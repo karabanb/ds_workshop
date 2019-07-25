@@ -1,4 +1,6 @@
 
+<br/>
+
 ## Rogrzewka
 
 ### Zadanie 0
@@ -11,10 +13,14 @@ w nim plik `013_StatystykaOpisowaOdpTwojeImie.R`
 Do utworzonych przez Was folderów od tego momentu będziecie pushować wasze rozwiązania zadań (chyba, 
 że specyfika zadania będzie wymagać innego rozwiązania).
 
+<br/>
+
 ## Miary zmienności (rozproszenia)
 
 Rozwiązania zadań umieść w pliku '013_StatystykaOpisowaOdpTwojeImie.R'. Finalną wersję pliku spushuj
 do zdalnego repozytorium do folderu `/excercises/TwojeImie`
+
+<br/>
 
 ### Zadanie 1
 
@@ -35,6 +41,8 @@ wektory zapisz do zmiennych: `norm_sd1`, `norm_sd2`, `norm_sd3`.
 - Wykonaj jeden wykres, na którym znajdują się trzy rozkłady dla zmiennych `norm_sd1`, `norm_sd2`, `norm_sd3`.
 - Wykonaj jeden wykres, na którym znajduję się trzy box-ploty dla zmiennych `norm_sd1`, `norm_sd2`, `norm_sd3`.
 
+<br/>
+
 ### Zadanie 2
 
 - Zapoznaj się z regułą ['Trzech sigm'](http://www.naukowiec.org/wiedza/statystyka/regula-trzech-sigm_709.html).
@@ -54,5 +62,15 @@ wektory zapisz do zmiennych: `iq_n100`, `iq_n10000`, `iq_n1000000`
 Porównaj uzyskane wyniki z wartościami z [tabeli](http://www.iqsociety.org/general/IQchart.pdf) dla skali Wechslera. Czy można zauważyć jakąś prawidłowość?
 - Sprawdź na wektorze `iq_n1000000` jaki procent obserwacji ma: iq < 80, iq < 100, iq < 115 i iq > 140
 - Umieść wykresy gęstości (rozkłady) wszytskich trzech wektorów na jednym wykresie (sugerowane użycie funkcji `ggplot2::geom_density()`). Co możesz zauważyć?
+
+<br/>
+
+### Zadanie 3
+
+- Zapoznaj się ze zbiorem `iris` z pakietu bazowego R.
+- Sprawdź która cecha charakteryzuje się największą zmiennością.
+- Sprawdź dla każdej cechy, który gatunek charakteryzuje się największą zmiennością.
+
+<br/>
 
 
