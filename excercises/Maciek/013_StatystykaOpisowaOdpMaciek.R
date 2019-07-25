@@ -70,5 +70,24 @@ coe <- function (x) {
 
 #Wykonaj jeden wykres, na którym znajduję się trzy box-ploty dla zmiennych `norm_sd1`, `norm_sd2`, `norm_sd3`.
 boxplot(norm_sd1, norm_sd2, norm_sd3, col="grey", horizontal = TRUE)
- 
- 
+
+
+### Zadanie 2
+
+#tworzenie wektorów o rozkładzie normalnym
+iq_n100 <- rnorm(100, mean = 100, sd = 15)
+iq_n10000 <- rnorm(10000, mean = 100, sd = 15)
+iq_n1000000 <- rnorm(1000000, mean = 100, sd = 15)
+
+#odleglosc 3 sigma (3 odch stand od sredniej)
+#TRUE - wszystkie wyniki w przedziale 3 sigma
+max(iq_n100) < mean(iq_n100) + 3 * sd(iq_n100)
+min(iq_n100) > mean(iq_n100) - 3 * sd(iq_n100)
+
+#37 wynikow poza przedzialem 3 sigma
+length(which(iq_n10000 < mean(iq_n10000) + 3 * sd(iq_n10000) & iq_n10000 > mean(iq_n10000) - 3 * sd(iq_n10000))) 
+
+#2724 wynikow poza przedzialem 3 sigma
+length(which(iq_n1000000 < mean(iq_n1000000) + 3 * sd(iq_n1000000) & iq_n1000000 > mean(iq_n1000000) - 3 * sd(iq_n1000000))) 
+
+
