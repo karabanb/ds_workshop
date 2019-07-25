@@ -134,5 +134,7 @@ summary(iris)
 apply(iris,2,var)
 #petal.length ma najwiekszy rozrzut zmiennej
 
-iris %>% group_by(Species)
+iris %>% group_by(Species) %>% summarise(var_Sepall = var(Sepal.Length), var_Sepalw = var(Sepal.Width), var_Petall = var(Petal.Length), var_Petalw = var(Petal.Width))
+#Sepal.Length najwiekszy rozrzut (zmiennosc) dla Virginici, Sepal.Width najwiekszy dla Setosy, Petal.L dla Virginici, Petal.W dla Virginici
+
 str(iris)
