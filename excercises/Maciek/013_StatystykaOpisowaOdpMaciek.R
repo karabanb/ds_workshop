@@ -79,16 +79,34 @@ iq_n100 <- rnorm(100, mean = 100, sd = 15)
 iq_n10000 <- rnorm(10000, mean = 100, sd = 15)
 iq_n1000000 <- rnorm(1000000, mean = 100, sd = 15)
 
-#odleglosc 3 sigma (3 odch stand od sredniej)
-#TRUE - wszystkie wyniki w przedziale 3 sigma
-max(iq_n100) < mean(iq_n100) + 3 * sd(iq_n100)
-min(iq_n100) > mean(iq_n100) - 3 * sd(iq_n100)
+#regula 3 sigm (3 odch stand od sredniej)
+
+#0 wynikow (0%) poza przedzialem 3 sigma
+#2 wyniki (2%) poza przedzialem 2 sigma
+#32 wyniki (32%) poza przedzialem 1 sigma
+length(which(iq_n100 > mean(iq_n100) + 3 * sd(iq_n100) | iq_n100 < mean(iq_n100) - 3 * sd(iq_n100)))
+length(which(iq_n100 > mean(iq_n100) + 2 * sd(iq_n100) | iq_n100 < mean(iq_n100) - 2 * sd(iq_n100)))
+length(which(iq_n100 > mean(iq_n100) + sd(iq_n100) | iq_n100 < mean(iq_n100) - sd(iq_n100)))
 
 #37 wynikow (~0,37%) poza przedzialem 3 sigma
-length(which(iq_n10000 < mean(iq_n10000) + 3 * sd(iq_n10000) & iq_n10000 > mean(iq_n10000) - 3 * sd(iq_n10000))) 
+#467 wynikow (~4,67%) poza przedzialem 2 sigma
+#3119 wynikow (~31,19%) poza przedzialem 1 sigma
+length(which(iq_n10000 > mean(iq_n10000) + 3 * sd(iq_n10000) | iq_n10000 < mean(iq_n10000) - 3 * sd(iq_n10000)))
+length(which(iq_n10000 > mean(iq_n10000) + 2 * sd(iq_n10000) | iq_n10000 < mean(iq_n10000) - 2 * sd(iq_n10000)))
+length(which(iq_n10000 > mean(iq_n10000) + sd(iq_n10000) | iq_n10000 < mean(iq_n10000) - sd(iq_n10000)))
+
 
 #2724 wynikow (~0,27%) poza przedzialem 3 sigma
-length(which(iq_n1000000 < mean(iq_n1000000) + 3 * sd(iq_n1000000) & iq_n1000000 > mean(iq_n1000000) - 3 * sd(iq_n1000000))) 
+#45272 wynikow (~4,53%) poza przedzialem 2 sigma
+#317450 wynikow (~31,75) poza przedzialem 1 sigma
+
+length(which(iq_n1000000 > mean(iq_n1000000) + 3 * sd(iq_n1000000) | iq_n1000000 < mean(iq_n1000000) - 3 * sd(iq_n1000000)))
+length(which(iq_n1000000 > mean(iq_n1000000) + 2 * sd(iq_n1000000) | iq_n1000000 < mean(iq_n1000000) - 2 * sd(iq_n1000000)))
+length(which(iq_n1000000 > mean(iq_n1000000) + sd(iq_n1000000) | iq_n1000000 < mean(iq_n1000000) - sd(iq_n1000000)))
+
+#wyglada na to, ze wszystkie zmienne maja rozklad normalny. Obserwacje znajduja sie w zakresach mierzonymi odch stand
+#Reguła Trzech Sigm dla danych rozkładow - w przedziale [μ–3σ,μ+3σ] znajduje się 99.7 % wszystkich obserwacji. 
+#[μ–2σ,μ+2σ] - 95,4% ; [μ–σ,μ+σ] - 68,2%
 
 #percyntyle
 #10 percentyl, 1 kwartyl, 3 kwartyl i 90 percentyl
