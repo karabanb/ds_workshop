@@ -124,7 +124,7 @@ length(which(iq_n1000000 < 100)) / 1000000 *100
 length(which(iq_n1000000 < 115)) / 1000000 *100 
 length(which(iq_n1000000 > 140)) / 1000000 *100 
 
-#0.09% obserwacji ponizej iq < 80 ; 49.98% obserwacji ponizej iq < 100 ; 84,2% ponizej 115 ; 0,38 % powyzej 140
+#9.2% obserwacji ponizej iq < 80 ; 49.98% obserwacji ponizej iq < 100 ; 84,2% ponizej 115 ; 0,38 % powyzej 140
 
 #Umieść wykresy gęstości (rozkłady) dla 3 wektorow
 
