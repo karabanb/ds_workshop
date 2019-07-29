@@ -87,3 +87,62 @@ sigma_three(iq_n1000000)
 # WNIOSEK: dla kazdego z wektorow zasada trzech sigma jest zachowana 68,2% obserwacji w przedziale [μ–σ,μ+σ], 
 #          95,4% w przedziale [μ–2σ,μ+2σ] oraz 99,7% w przedziale [μ–3σ,μ+3σ]
 
+
+# wartosc 10 percentyla, 1 kwartyla, 3 kwartyla i 90 percentyla dla każdego z wektorów
+quantile(iq_n100,c(.1,.25,.75,.9))
+quantile(iq_n10000,c(.1,.25,.75,.9))
+quantile(iq_n1000000,c(.1,.25,.75,.9))
+
+# WNIOSEK: ze wzrostem proby uzyskane wyniki sa blizsze wartosciom dla skali Wechslera
+
+# Sprawdź na wektorze iq_n1000000 jaki procent obserwacji ma: iq < 80, iq < 100, iq < 115 i iq > 140
+
+length(which(iq_n1000000<80))/length(iq_n1000000)*100 # 9,1%
+length(which(iq_n1000000<100))/length(iq_n1000000)*100 # 49,9%
+length(which(iq_n1000000<115))/length(iq_n1000000)*100 # 84.1%
+length(which(iq_n1000000>140))/length(iq_n1000000)*100 #0.39
+
+# Umieść wykresy gęstości (rozkłady) wszystkich trzech wektorów na jednym wykresie
+
+iq_n100_df <- data.frame("value"=iq_n100,"vector"="iq_n100")
+iq_n10000_df <- data.frame("value"=iq_n10000,"vector"="iq_n10000")
+iq_n1000000_df <- data.frame("value"=iq_n1000000,"vector"="iq_n1000000")
+
+iq_n_all <- rbind(iq_n100_df,iq_n10000_df,iq_n1000000_df)
+
+iq_n_all %>% 
+  ggplot(aes(value,color=vector))+geom_density()+
+  theme_light()
+
+# WNIOSEK: rozklady sa zblizone do siebie
+
+# zadanie 3 
+
+head(iris)
+
+multi.fun <- function(x){
+  c(sd=sd(x),var=var(x))
+}
+
+sapply(iris[,1:4],multi.fun)
+# or
+apply(iris[,1:4],2,multi.fun)
+
+# WNIOSEK: najwieksza zmiennoscia charakteryzuje sie zmienna Petal.Length
+
+iris %>% 
+  group_by(Species) %>% 
+  summarise(var(Sepal.Length),
+            sd(Sepal.Length),
+            var(Sepal.Width),
+            sd(Sepal.Width),
+            var(Petal.Length),
+            sd(Petal.Length),
+            var(Petal.Width),
+            sd(Petal.Width)) 
+  #gather(key="variable",value="value",-Species) %>% 
+  #filter(value==max(value))
+
+# Wniosek: Sepal.Length - virginica, Sepal.Width - setosa, Petal.Length - virginica, Petal.Width - virginica
+
+ 
