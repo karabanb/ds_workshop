@@ -84,5 +84,6 @@ sigma_three(iq_n100)
 sigma_three(iq_n10000)
 sigma_three(iq_n1000000)
 
-# WNIOSEK: dla kazdego z wektorow zasada trzech sigma jest zachowana 68,2% obserwacji w przedziale [μ–σ,μ+σ], 95,4% w przedziale [μ–2σ,μ+2σ] oraz 99,7% w przedziale [μ–3σ,μ+3σ]
+# WNIOSEK: dla kazdego z wektorow zasada trzech sigma jest zachowana 68,2% obserwacji w przedziale [μ–σ,μ+σ], 
+#          95,4% w przedziale [μ–2σ,μ+2σ] oraz 99,7% w przedziale [μ–3σ,μ+3σ]
 
