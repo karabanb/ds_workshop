@@ -33,6 +33,14 @@ sd(norm_sd1)
 sd(norm_sd2)
 sd(norm_sd3)
 
+# coefficient of variation - wspolczynnik zmiennosci
+
+library(sjstats)
+
+cv(norm_sd1)
+cv(norm_sd2)
+cv(norm_sd3)
+
 # WNIOSEK: wektor z najnizszym sd jest najmniej zroznicowany, jego wartosci sa bardziej skoncentrowane sredniej
 
 # Wykonaj jeden wykres, na którym znajdują się trzy rozkłady dla zmiennych norm_sd1, norm_sd2, norm_sd3
@@ -55,4 +63,26 @@ norm_sd_all %>%
   ggplot(aes(norm_sd,value,fill=norm_sd))+
   geom_boxplot()+
   theme_light()
-  
+
+
+# zadanie 2
+
+iq_n100 <- rnorm(100,mean=100,sd=15)
+iq_n10000 <- rnorm(10000,mean=100,sd=15)
+iq_n1000000 <- rnorm(1000000,mean=100,sd=15)
+
+
+sigma_three <- function(x){
+  sigma1=length(which(x>(mean(x)+sd(x))|x<(mean(x)-sd(x))))/length(x)*100
+  sigma2=length(which(x>(mean(x)+2*sd(x))|x<(mean(x)-2*sd(x))))/length(x)*100
+  sigma3=length(which(x>(mean(x)+3*sd(x))|x<(mean(x)-3*sd(x))))/length(x)*100
+  out_of_sigma <- data.frame(sigma1,sigma2,sigma3)
+  print(out_of_sigma)
+}
+
+sigma_three(iq_n100)
+sigma_three(iq_n10000)
+sigma_three(iq_n1000000)
+
+# WNIOSEK: dla kazdego z wektorow zasada trzech sigma jest zachowana 68,2% obserwacji w przedziale [μ–σ,μ+σ], 95,4% w przedziale [μ–2σ,μ+2σ] oraz 99,7% w przedziale [μ–3σ,μ+3σ]
+
