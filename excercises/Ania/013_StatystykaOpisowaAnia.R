@@ -137,3 +137,4 @@ summary_iris <- iris %>%  group_by(Species) %>%
 #Conclusion - The biggest variability for Sepal.Length - virginica, for Sepal. Width - setosa, 
 #for Petal.Length - virginica, for Petal.Width - virginica
 
+
