@@ -10,3 +10,9 @@ p2 <- function(x){
 
 
 load('data/012_skewed_data.Rdata')
+
+skewed_data
+
+skew <- function(x){
+  sum((x-mean(x))^3)/length(x)/sd(x)^3
+}
