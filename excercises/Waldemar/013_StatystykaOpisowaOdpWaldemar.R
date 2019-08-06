@@ -143,6 +143,9 @@ iris %>%
   #gather(key="variable",value="value",-Species) %>% 
   #filter(value==max(value))
 
+iris %>% group_by(Species) %>% 
+  summarise_all(sd)
+
 # Wniosek: Sepal.Length - virginica, Sepal.Width - setosa, Petal.Length - virginica, Petal.Width - virginica
 
  
