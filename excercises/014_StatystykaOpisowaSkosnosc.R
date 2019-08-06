@@ -7,3 +7,6 @@ asymetry_q <- function (x) {
 p2 <- function(x){
   3*((mean(x)-median(x))/sd(x))
 }
+
+
+load('data/012_skewed_data.Rdata')
