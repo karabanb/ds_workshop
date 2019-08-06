@@ -2,6 +2,7 @@
 #### LIBRARIES #####################################################################################
 
 library(tidyverse)
+library(BBmisc)
 
 #### PLOTS #########################################################################################
 
@@ -61,6 +62,23 @@ rm(non_skewed, right_skewed, left_skewed)
 
 # the simplest measure of skewness
 
+asymetry_second <- function(x){
+  3*((mean(x)-median(x))/sd(x))
+}
+
+asymetry_iqr <- function(x){
+  (quantile(x, 0.75) + quantile(x, 0.25) - 2* median(x))/IQR(x)
+}
+
+skewed_data$x <- skewed_data$x*100
+
 skewed_data %>% 
   group_by(skewness) %>% 
-  summarise(mean = mean(x), median = median(x), skew = mean(x)/median(x))
+  summarise(mean = mean(x),
+            median = median(x),
+            asym_simplest = mean(x)/median(x), 
+            asym_pearson = asymetry_second(x),
+            asym_iqr = asymetry_iqr(x)
+  )
+
+
