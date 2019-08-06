@@ -7,3 +7,7 @@ sd_withn <- function(x) {
   }
   print((sumcia / (length(x)-1))^0.5)
 }
+
+s_dev <- function(x) {
+  sqrt((sum((x - mean(x))^2))/(length(x) - 1))
+}
