@@ -81,6 +81,7 @@ skewed_data %>%
             asym_iqr = asymetry_iqr(x)
   )
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 ### Skewness ---------------------------------------------------------------------------------------
@@ -121,4 +122,7 @@ skewed_data %>%
 
 
 =======
+>>>>>>> 1c1b9db0d166ff4ad8cfee110b9cfb305a2c3a6f
+=======
+
 >>>>>>> 1c1b9db0d166ff4ad8cfee110b9cfb305a2c3a6f
