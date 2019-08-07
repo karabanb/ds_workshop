@@ -65,3 +65,5 @@ sum(iq > (mean_iq- 3 * sd_iq) & iq < (mean_iq + 3 * sd_iq))/n # 1s < 0.997
 
 
 
+
+
