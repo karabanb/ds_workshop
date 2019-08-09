@@ -98,5 +98,7 @@ ggplot(gather(iq_df, 'n', 'iq'), aes(iq, col = n)) +
 sapply(iris[,1:4], var_coef)    # najwieksza zmiennosc cechuje Petal.Width
 
 iris %>%
-  group_by(Species) %>%         # setosa  - Sepal.Width,  versicolor, viriginica  - Sepal.Length
-  summarise_all(sd)
+  group_by(Species) %>%         # Sepal.Length - virginica,
+  summarise_all(sd)             # Sepal.Width - setosa
+                                # Petal.Length - virginica,
+                                # Petal.Width - virginica
