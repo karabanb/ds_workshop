@@ -73,4 +73,28 @@ Porównaj uzyskane wyniki z wartościami z [tabeli](http://www.iqsociety.org/gen
 
 <br/>
 
+## Statystyka Opisowa - Podsumowanie
+
+### Projekt
+
+Załóż konto na [www.rpubs.com](http://www.rpubs.com)
+
+Dysponując danymi transakcyjnymi z portalu aukcyjnego [allegro](https://allegro.pl) wykonaj analizę 
+danych pod kątem poznanych statystyk opisowych:
+
+- miar położenia,
+- miar zmienności,
+- miar asymetrii,
+- miar koncentracji,
+- korelacji.
+
+Na podstawie uzyskanych wyników stwórz raport w [Rmakrdown](https://rmarkdown.rstudio.com/) i z 
+poziomu Rstudio opublikuj go na [www.rpubs.com](http://www.rpubs.com).
+
+<br/>
+
+
+
+
+
 
