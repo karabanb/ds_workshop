@@ -79,8 +79,7 @@ Porównaj uzyskane wyniki z wartościami z [tabeli](http://www.iqsociety.org/gen
 
 Załóż konto na [www.rpubs.com](http://www.rpubs.com)
 
-Dysponując danymi transakcyjnymi z portalu aukcyjnego [allegro](https://allegro.pl) wykonaj analizę 
-danych pod kątem poznanych statystyk opisowych:
+Dysponując danymi transakcyjnymi z portalu aukcyjnego [allegro](https://allegro.pl) wykonaj analizę danych pod kątem poznanych statystyk opisowych:
 
 - miar położenia,
 - miar zmienności,
@@ -90,6 +89,8 @@ danych pod kątem poznanych statystyk opisowych:
 
 Na podstawie uzyskanych wyników stwórz raport w [Rmakrdown](https://rmarkdown.rstudio.com/) i z 
 poziomu Rstudio opublikuj go na [www.rpubs.com](http://www.rpubs.com).
+
+Ścieżka dostępu do danych: `data/012_allegro_transactions.Rdata`
 
 <br/>
 
