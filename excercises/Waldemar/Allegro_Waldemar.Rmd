@@ -24,6 +24,7 @@ library(funModeling)
 theme_set(theme_light())
 
 load("data/012_allegro_transactions.Rdata")
+allegro_transactions <- as_tibble(allegro_transactions)
 ```
 
 
@@ -33,10 +34,105 @@ load("data/012_allegro_transactions.Rdata")
 View(allegro_transactions)
 summary(allegro_transactions)
 df_status(allegro_transactions)
+str(allegro_transactions)
+
+# price
 
 ggplot(allegro_transactions,aes(price))+geom_histogram(bins=30)+
   scale_x_continuous(limits = c(0,1000),breaks=seq(0,1000,100))
 
+# result: most of the transactions had price below 100 
+
+allegro_transactions %>% 
+  mutate(std_price=(price-mean(price))/sd(price)) %>% 
+  group_by(main_category) %>% 
+  summarise(mean_price=mean(std_price),
+            sd_price=round(sd(std_price),2),
+            range_price=(max(std_price)-min(std_price)),
+            IQR_price=quantile(std_price,.75)-quantile(std_price,.025)) %>% 
+  mutate_if(is.double,~round(.,2)) %>% 
+  arrange((sd_price)) %>% View()
+
+# when we consider all data and after standarisation of price values, it looks that main category Rekodzialo has the smallest variety (sd=0.03)
+  
+# without standarisation of price
+
+allegro_transactions %>% 
+  group_by(main_category) %>% 
+  summarise(mean_price=mean(price),
+            sd_price=round(sd(price),2),
+            range_price=(max(price)-min(price)),
+            IQR_price=quantile(price,.75)-quantile(price,.025),
+            cov=(sd(price)/mean(price))*100) %>% 
+  mutate_if(is.double,~round(.,2)) %>% 
+  arrange((cov)) %>% View()
+
+#aggregate(price~main_category,data=allegro_transactions_filtered,mean)
+#aggregate(price~main_category,data=allegro_transactions,mean)
+#aggregate(price~main_category,data=allegro_transactions_filtered,FUN= function(x) c(mean=mean(x),median=median(x),sd=sd(x)))
+
+# main categories - barchart
+allegro_transactions %>% 
+  count(main_category,sort=T) %>% 
+  mutate(main_category=fct_reorder(main_category,n)) %>% 
+  ggplot(aes(main_category,n))+
+  geom_col(fill="lightblue",color="black")+
+  coord_flip()+
+  labs(title = "Main categories",y="volume",x="")+
+  theme(legend.position = "blank")
+
+allegro_transactions %>% 
+  count(it_location) %>% 
+  mutate(it_location=fct_reorder(it_location,n)) %>% 
+  ggplot(aes(it_location,n))+
+  geom_col(fill="lightblue",color="black")+
+  coord_flip()
+
+allegro_transactions_filtered <- allegro_transactions %>% 
+                                 select(-lp) %>% 
+                                 mutate(date=as.Date(date),
+                                        pay_option_on_delivery=as.factor(pay_option_on_delivery),
+                                        pay_option_transfer=as.factor(pay_option_transfer),
+                                        it_is_allegro_standard=as.factor(it_is_allegro_standard),
+                                        it_is_brand_zone=as.factor(it_is_brand_zone)) %>% 
+                                 filter(price<100) 
+
+
+
 ```
 
 # Modelling 
+
+```{r}
+library(caTools)
+library(class)
+allegro_transactions <- allegro_transactions %>% select(-item_id)
+any(is.na(allegro_transactions))
+# KNN to clasify main_category
+main_category <- allegro_transactions$main_category
+sample_allegro <- sample.split(allegro_transactions$main_category,SplitRatio = 0.7)
+
+allegro_transactions_std <- allegro_transactions[,-13] %>% 
+  mutate(it_location=as.integer(it_location),
+         date=as.integer(date),
+         categories=as.integer(categories),
+         seller=as.integer(seller),
+         price=as.integer(price))
+
+
+allegro_transactions_std <- scale(allegro_transactions_std)
+
+train_allegro <- allegro_transactions_std[sample_allegro==TRUE,]
+train_main_category <- main_category[sample_allegro==TRUE]
+
+test_allegro <- allegro_transactions_std[sample_allegro==FALSE,]
+test_main_category <- main_category[sample_allegro==FALSE]
+
+predicted_main_category <- knn(train_allegro,test_allegro,train_main_category,k=3)
+print(head(predicted_main_category))
+
+
+misclass.error <- mean(test_main_category != predicted_main_category)
+accuracy <- print(1-misclass.error)
+```
+
